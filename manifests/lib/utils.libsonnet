@@ -87,9 +87,10 @@ local kube = import "kube.libsonnet";
     metadata+: {
       annotations+: {
         // NB: Our nginx-ingress no-auth-locations includes "/oauth2"
-        "nginx.ingress.kubernetes.io/auth-signin": "https://%s/oauth2/start?rd=%%2F$server_name$escaped_request_uri" % this.authHost,
-        "nginx.ingress.kubernetes.io/auth-url": "https://%s/oauth2/auth" % this.authHost,
-        "nginx.ingress.kubernetes.io/auth-response-headers": "X-Auth-Request-User, X-Auth-Request-Email",
+        // oauth removed for dev purposes
+        // "nginx.ingress.kubernetes.io/auth-signin": "https://%s/oauth2/start?rd=%%2F$server_name$escaped_request_uri" % this.authHost,
+        // "nginx.ingress.kubernetes.io/auth-url": "https://%s/oauth2/auth" % this.authHost,
+        // "nginx.ingress.kubernetes.io/auth-response-headers": "X-Auth-Request-User, X-Auth-Request-Email",
       },
     },
   },
